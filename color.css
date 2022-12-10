@@ -45,20 +45,19 @@ h2 {
     font-size: 14px;
     font-weight: 600;
     background: none;
-    color: #f17e67;
+    color: #31d610;
     cursor: pointer;
-    transition: .1s all;
+    transition: .3s all ease;
     text-align: center;
-    width: 60px;
-    /* margin-right: 10px; */
+    /* width: 60px; */
+
 }
 
 .headers button:hover {
-    color: #f84724;
+    color: #17f322;
 }
 
 hr {
-    /* border: 1px solid rgba(0, 0, 0, 0.3); */
     color: rgba(0, 0, 0, 0.3);
     padding: 0;
     margin-top: 4px;
@@ -77,7 +76,6 @@ hr {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
-    /* margin-bottom: 20px; */
 }
 
 .checks {
@@ -278,7 +276,6 @@ input[type="range"] {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* box-sizing: border-box; */
 }
 
 .singleColor {
