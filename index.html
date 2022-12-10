@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Generator</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="/color.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="section1">
+            <div class="headers">
+                <h2>Display Color</h2>
+                <button class="randomBtn">Random Color</button>
+            </div>
+            <hr>
+            <div class="colorbody">
+            </div>
+        </div>
+        <div class="section2">
+            <div class="headers">
+                <h2>Change and Copy Color</h2>
+                <button class="saveBtn">Save</button>
+            </div>
+            <hr>
+            <div class="values">
+                <div class="code">
+                    <p>Hex</p>
+                    <div class="hexdesign">
+                        <div class="codes">
+                            <i class="hash">#</i>
+                            <input type="text" id="hexVal">
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="code">
+                    <p class="adjust">RGB</p>
+                    <div class="codes">
+                        <input type="text" id="rgbVal">
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="others">
+                <p>Adjust Rgb Colors</p>
+                <div class="radios">
+                    <div class="sliderGroup">
+                        <div class="slidertexts">
+                            <p style="color: red;">Red</p>
+                            <p>222</p>
+                        </div>
+                        <input style="accent-color: red;" type="range" min="0" max="255" value="222" id="redRange">
+                    </div>
+                    <div class="sliderGroup">
+                        <div class="slidertexts">
+                            <p style="color: #008000;">Green</p>
+                            <p>222</p>
+                        </div>
+
+                        <input style="accent-color: #008000" type="range" min="0" max="255" value="222" id="greenRange">
+                    </div>
+                    <div class="sliderGroup">
+                        <div class="slidertexts">
+                            <p style="color: #0075FF;">Blue</p>
+                            <p>237</p>
+                        </div>
+
+                        <input type="range" min="0" max="255" value="237" id="blueRange">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="palletColors">
+            <h2>Pallete Colors</h2>
+            <hr>
+            <div class="colors">
+
+            </div>
+        </div>
+        <div class="saved">
+            <h2>Saved Colors</h2>
+            <hr>
+            <div class="savedColors">
+            </div>
+        </div>
+        <div class="uploadCustom">
+            <h2>Upload your image</h2>
+            <hr>
+            <div class="preview"></div>
+            <button class="uploadBtn">Upload</button>
+            <input type="file" id="uploading">
+            <button>dlt</button>
+        </div>
+
+        <!-- <script src="https://kit.fontawesome.com/f99514d96b.js" crossorigin="anonymous"></script> -->
+        <script src="/script.js"></script>
+        <script src="/upload.js"></script>
+</body>
+
+</html>
