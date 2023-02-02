@@ -1,33 +1,33 @@
-const generatedBtn = document.querySelector('button')
-const root = document.querySelector('#root')
-const input = document.querySelector('input')
-const copyBtn = document.querySelector('.copyBtn')
-const copyDone = document.querySelector('.copyDone')
-const hexconverter = document.querySelector('.hexconBtn')
-const rgbShow = document.querySelector('.rgbShow')
-const copyBtn2 = document.querySelector('.copyBtn2')
+const generatedBtn = document.querySelector('button');
+const root = document.querySelector('#root');
+const input = document.querySelector('input');
+const copyBtn = document.querySelector('.copyBtn');
+const copyDone = document.querySelector('.copyDone');
+const hexconverter = document.querySelector('.hexconBtn');
+const rgbShow = document.querySelector('.rgbShow');
+const copyBtn2 = document.querySelector('.copyBtn2');
 let div = null;
-let timeout
-input.value = 'ffffff'
-rgbShow.value = 'rgb(255,255,255)'
-let rgb
+let timeout;
+input.value = 'ffffff';
+rgbShow.value = 'rgb(255,255,255)';
+let rgb;
 
 
 function generatecolor() {
-    const red = Math.floor(Math.random() * 255) + 1
-    const green = Math.floor(Math.random() * 255) + 1
-    const blue = Math.floor(Math.random() * 255) + 1
-    rgb = `rgb(${red},${green},${blue})`
-    return rgbToHex(red, green, blue)
+    const red = Math.floor(Math.random() * 255) + 1;
+    const green = Math.floor(Math.random() * 255) + 1;
+    const blue = Math.floor(Math.random() * 255) + 1;
+    rgb = `rgb(${red},${green},${blue})`;
+    return rgbToHex(red, green, blue);
 }
 
 generatedBtn.addEventListener('click', function () {
     if (copyBtn.disabled) {
-        copyBtn.disabled = false
+        copyBtn.disabled = false;
     }
-    input.value = generatecolor().substring(1)
-    root.style.backgroundColor = generatecolor()
-    rgbShow.value = rgb
+    input.value = generatecolor().substring(1);
+    root.style.backgroundColor = generatecolor();
+    rgbShow.value = rgb;
 })
 
 function rgbToHex(r, g, b) {
@@ -35,29 +35,29 @@ function rgbToHex(r, g, b) {
 }
 
 copyBtn.addEventListener('click', function () {
-    const data = '#' + input.value
+    const data = '#' + input.value;
+    navigator.clipboard.writeText(data);
+    copyfunc();
+});
+
+copyBtn2.addEventListener('click', () => {
+    const data = rgbShow.value;
     navigator.clipboard.writeText(data);
     copyfunc();
 })
 
-copyBtn2.addEventListener('click', () => {
-    const data = rgbShow.value
-    navigator.clipboard.writeText(data)
-    copyfunc()
-})
-
 function copyfunc() {
     if (div !== null) {
-        clearTimeout(timeout)
+        clearTimeout(timeout);
         div.remove();
-        div = null
-    }
+        div = null;
+    };
     timeout = setTimeout(() => {
-        div.classList.remove('slide-in')
-        div.classList.add('slide-out')
+        div.classList.remove('slide-in');
+        div.classList.add('slide-out');
         div.addEventListener('animationend', function () {
-            this.remove()
-            div = null
+            this.remove();
+            div = null;
         })
     }, 5000);
 
@@ -66,21 +66,20 @@ function copyfunc() {
 }
 
 function generateMsg() {
-    div = document.createElement('div')
-    div.classList.add('copyDone', 'slide-in')
+    div = document.createElement('div');
+    div.classList.add('copyDone', 'slide-in');
 
     div.innerHTML = `<i class="fa-solid fa-circle-check"></i>
     <h2>Copied to clipboard</h2>`
-    document.body.appendChild(div)
+    document.body.appendChild(div);
 
     div.addEventListener('click', function () {
-        div.classList.remove('slide-in')
-        div.classList.add('slide-out')
+        div.classList.remove('slide-in');
+        div.classList.add('slide-out');
         div.addEventListener('animationend', function () {
-            this.remove()
+            this.remove();
         })
     })
-    div.addEventListener('')
 }
 
 function hexToRgb(hex) {
@@ -94,24 +93,24 @@ function hexToRgb(hex) {
 
 input.addEventListener('keyup', function (e) {
 
-    const colors = e.target.value
+    const colors = e.target.value;
 
-    copyBtn.disabled = true
+    copyBtn.disabled = true;
     if (colors) {
-        input.value = colors.toLowerCase()
+        input.value = colors.toLowerCase();
     }
     if (colors && hexValid('#' + colors)) {
-        copyBtn.disabled = false
-        root.style.backgroundColor = '#' + colors
-        rgbShow.value = hexToRgb(colors)
+        copyBtn.disabled = false;
+        root.style.backgroundColor = '#' + colors;
+        rgbShow.value = hexToRgb(colors);
     }
 
-})
+});
 
 function hexValid(color) {
-    if (color.length !== 7) return false
-    if (color[0] !== '#') return false
+    if (color.length !== 7) return false;
+    if (color[0] !== '#') return false;
 
-    color = color.substring(1)
-    return /^[0-9A-Fa-f]{6}$/i.test(color)
+    color = color.substring(1);
+    return /^[0-9A-Fa-f]{6}$/i.test(color);
 }
